@@ -32,13 +32,15 @@ export default class MCPClient extends WorkflowNode {
         authentication: config.authentication,
       },
       credential:
-        config.authentication == 'headerAuth'
-          ? {
-              httpHeaderAuth: { id: config.credential_id },
-            }
-          : {
-              httpBearerAuth: { id: config.credential_id },
-            },
+        config.credential_id != null
+          ? config.authentication == 'headerAuth'
+            ? {
+                httpHeaderAuth: { id: config.credential_id },
+              }
+            : {
+                httpBearerAuth: { id: config.credential_id },
+              }
+          : undefined,
       connections: config.connections && {
         ai_tool: config.connections,
       },
