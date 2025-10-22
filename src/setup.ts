@@ -183,13 +183,13 @@ function quoteIfNeeded(v: string) {
     ? (existingWeekday as Weekday)
     : 'Sunday';
   const WEEK_DAY = (await select({
-    message: 'Weekly trigger day? (optional)',
+    message: 'Weekly trigger day (optional)',
     default: weekdayDefault,
     choices: [...WEEKDAYS.map((d) => ({ name: d, value: d }))],
   })) as Weekday;
 
   const HOUR = await input({
-    message: 'LLM provider credential ID:',
+    message: 'Trigger hour (optional):',
     default: def('HOUR', 21),
   });
 
