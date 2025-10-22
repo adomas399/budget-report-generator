@@ -39,7 +39,7 @@ All necessary setup can be made from the terminal or by manually setting the env
 1.  Clone the repository:
 
     ```bash
-    git clone --single-branch --branch budget-report https://github.com/adomas399/budget-report-generator.git
+    git clone https://github.com/adomas399/budget-report-generator.git
     cd budget-report-generator
     ```
 
