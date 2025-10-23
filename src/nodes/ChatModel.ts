@@ -1,3 +1,4 @@
+import { LLMProvider } from '../types.js';
 import WorkflowNode from './WorkflowNode';
 
 export default class ChatModel extends WorkflowNode {
@@ -7,18 +8,7 @@ export default class ChatModel extends WorkflowNode {
     id?: string;
     name?: string;
     version?: number;
-    provider:
-      | 'OpenRouter'
-      | 'OpenAi'
-      | 'Anthropic'
-      | 'GoogleGemini'
-      | 'MistralCloud'
-      | 'DeepSeek'
-      | 'Groq'
-      | 'XAiGroq'
-      | 'AzureOpenAi'
-      | 'Ollama'
-      | 'AwsBedrock';
+    provider: LLMProvider;
     model: string;
     credential_id: string;
     connections: string[];

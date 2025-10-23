@@ -29,7 +29,6 @@ const prompt = loadFile('budgetReviewPrompt.txt');
 const N8N_URL = must('N8N_URL');
 const N8N_API_KEY = must('N8N_API_KEY');
 
-const LLM_PROVIDER = must('LLM_PROVIDER') as LLMProvider; // typed via your union elsewhere if desired
 const LLM_PROVIDER_CREDENTIAL_ID = must('LLM_PROVIDER_CREDENTIAL_ID');
 
 const RESEND_CREDENTIAL_ID = must('RESEND_CREDENTIAL_ID');
@@ -54,6 +53,7 @@ if (MCP_AUTHENTICATION && !MCP_CREDENTIAL_ID) {
 }
 
 // optional with defaults
+const LLM_PROVIDER = (get('LLM_PROVIDER') ?? 'OpenRouter') as LLMProvider;
 const WORKFLOW_NAME = get('WORKFLOW_NAME') ?? 'Weekly Budget Report';
 const CHAT_MODEL = get('CHAT_MODEL') ?? 'anthropic/claude-3.7-sonnet';
 

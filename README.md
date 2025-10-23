@@ -11,6 +11,8 @@ The workflow:
 
 All necessary setup can be made from the terminal or by manually setting the envirnoment variables – no coding needed! For a more tailored report, customize the prompt.
 
+> ℹ️ Supported LLM providers: OpenRouter, OpenAi, Anthropic, GoogleGemini, MistralCloud, DeepSeek, Groq, XAiGroq, AzureOpenAi, Ollama, AwsBedrock
+
 ## Usage
 
 ### Prerequisities
@@ -67,25 +69,25 @@ All necessary setup can be made from the terminal or by manually setting the env
 
   ```bash
   # --- Required ---
-  N8N_URL=https://your-n8n-instance.com            # Your n8n instance URL
-  N8N_API_KEY=your-n8n-api-key                     # Your n8n API key
-  LLM_PROVIDER=OpenRouter                          # Model provider (OpenRouter|OpenAi|Anthropic|etc.)
-  LLM_PROVIDER_CREDENTIAL_ID=abc-123               # n8n credential ID for the model provider
-  RESEND_CREDENTIAL_ID=def-456                     # n8n credential ID for Resend
-  MAIL_FROM=send@email.example                     # Sender email address
-  MAIL_TO=receive@email.example                    # Recipient email address
-  OVERWRITE=true                                   # Whether to replace existing workflows
-  MCP_ENDPOINT=https://your-actual-mcp-url/sse     # Actual-MCP SSE endpoint URL
+  N8N_URL=https://your.n8n.url
+  N8N_API_KEY=your-n8n-api-key
+  LLM_PROVIDER_CREDENTIAL_ID=id-from-n8n
+  RESEND_CREDENTIAL_ID=id-from-n8n
+  MAIL_FROM=send@email.example
+  MAIL_TO=receive@email.example
+  OVERWRITE=true/false
+  MCP_ENDPOINT=https://your-actual-mcp-url/sse
 
-  # --- Optional (only needed if bearer-auth is enabled for actual-mcp) ---
-  MCP_AUTHENTICATION=bearerAuth                    # Authentication type (bearerAuth|headerAuth)
-  MCP_CREDENTIAL_ID=ghi-789                        # n8n credential ID for MCP (if authentication enabled)
+  # --- Optional ---
+  MCP_AUTHENTICATION=brearerAuth/headerAuth/empty
+  MCP_CREDENTIAL_ID=id-from-n8n
 
-  # --- Optional with defaults ---
-  CHAT_MODEL=anthropic/claude-3.7-sonnet           # Default chat model
-  WORKFLOW_NAME=Weekly Budget Report               # Default workflow name
-  WEEK_DAY=Sunday                                  # Default execution day
-  HOUR=21                                          # Default execution hour
+  # --- Optional with defaults in code ---
+  LLM_PROVIDER=OpenRouter
+  CHAT_MODEL=anthropic/claude-3.7-sonnet
+  WORKFLOW_NAME="Weekly Budget Report"
+  WEEK_DAY=Sunday
+  HOUR=21
   ```
 
 4.  Executing

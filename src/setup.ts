@@ -170,11 +170,11 @@ function quoteIfNeeded(v: string) {
 
   // Optional
   const WORKFLOW_NAME = await input({
-    message: 'Workflow name (optional):',
+    message: 'Workflow name:',
     default: def('WORKFLOW_NAME', 'Weekly Budget Report'),
   });
   const CHAT_MODEL = await input({
-    message: 'Chat model (optional):',
+    message: 'Chat model:',
     default: def('CHAT_MODEL', 'anthropic/claude-3.7-sonnet'),
   });
 
@@ -183,13 +183,13 @@ function quoteIfNeeded(v: string) {
     ? (existingWeekday as Weekday)
     : 'Sunday';
   const WEEK_DAY = (await select({
-    message: 'Weekly trigger day (optional)',
+    message: 'Weekly trigger day:',
     default: weekdayDefault,
     choices: [...WEEKDAYS.map((d) => ({ name: d, value: d }))],
   })) as Weekday;
 
   const HOUR = await input({
-    message: 'Trigger hour (optional):',
+    message: 'Trigger hour:',
     default: def('HOUR', 21),
   });
 
@@ -230,7 +230,6 @@ function quoteIfNeeded(v: string) {
 
   const env = parsed.data;
   const lines = [
-    `# Generated on ${new Date().toISOString()}`,
     `N8N_URL=${quoteIfNeeded(env.N8N_URL)}`,
     `N8N_API_KEY=${quoteIfNeeded(env.N8N_API_KEY)}`,
     `LLM_PROVIDER=${env.LLM_PROVIDER}`,
